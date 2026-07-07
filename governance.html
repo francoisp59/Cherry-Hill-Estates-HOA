@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Governance - <span class="js-community-name">Our Community HOA</span></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-800">🏠 <span class="js-community-name">Our Community HOA</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+                    <a href="documents.html" class="text-gray-600 hover:text-blue-600 transition">Documents</a>
+                    <a href="governance.html" class="text-blue-600">Governance</a>
+                    <a href="tips.html" class="text-gray-600 hover:text-blue-600 transition">Community Tips</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="outline-none">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 px-4 py-2 space-y-1">
+            <a href="index.html" class="block py-2 text-gray-600">Home</a>
+            <a href="documents.html" class="block py-2 text-gray-600">Documents</a>
+            <a href="governance.html" class="block py-2 text-blue-600 font-medium">Governance</a>
+            <a href="tips.html" class="block py-2 text-gray-600">Community Tips</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-blue-700 text-white py-12 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-2">HOA Governance</h1>
+            <p class="text-blue-100">Our leadership and local regulatory reminders.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-12">
+        <div class="grid md:grid-cols-2 gap-12">
+
+            <!-- Board Members -->
+            <section>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="mr-2">👥</span> Board Members
+                </h2>
+                <div class="space-y-4">
+                    <!-- Board Member 1 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
+                            P
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">President Name</h3>
+                            <p class="text-gray-500 text-sm">President</p>
+                        </div>
+                    </div>
+                    <!-- Board Member 2 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
+                            V
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">Vice President Name</h3>
+                            <p class="text-gray-500 text-sm">Vice President</p>
+                        </div>
+                    </div>
+                    <!-- Board Member 3 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
+                            S
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">Secretary Name</h3>
+                            <p class="text-gray-500 text-sm">Secretary</p>
+                        </div>
+                    </div>
+                    <!-- Board Member 4 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
+                            T
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">Treasurer Name</h3>
+                            <p class="text-gray-500 text-sm">Treasurer</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- City Reminders -->
+            <section>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="mr-2">🏙️</span> <span class="js-city">Broadview Heights</span> Bylaws
+                </h2>
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 space-y-4">
+                    <p class="text-blue-800 font-medium mb-4">Important reminders for residents regarding city ordinances:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">✓</span>
+                            <span class="text-gray-700"><strong>Grass Maintenance:</strong> Please ensure lawns are kept within city height limits to avoid municipal citations.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">✓</span>
+                            <span class="text-gray-700"><strong>Waste Management:</strong> Trash and recycling bins should be stored out of public view on non-collection days.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">✓</span>
+                            <span class="text-gray-700"><strong>Parking:</strong> Respect city parking regulations, especially regarding overnight street parking during winter snow removals.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">✓</span>
+                            <span class="text-gray-700"><strong>Home Improvements:</strong> Ensure all major exterior modifications are approved by both the HOA and the city building department.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-6 border-t border-blue-200">
+                        <p class="text-xs text-blue-600 italic">For more detailed information, please visit the official City of <span class="js-city">Broadview Heights</span> website.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-100 border-t border-gray-200 py-8 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2026 <span class="js-copyright-name">Our Community HOA</span>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- Global Config & Injection -->
+    <script src="config.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

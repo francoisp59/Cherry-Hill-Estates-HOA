@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Tips - <span class="js-community-name">Our Community HOA</span></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-800">🏠 <span class="js-community-name">Our Community HOA</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+                    <a href="documents.html" class="text-gray-600 hover:text-blue-600 transition">Documents</a>
+                    <a href="governance.html" class="text-gray-600 hover:text-blue-600 transition">Governance</a>
+                    <a href="tips.html" class="text-blue-600">Community Tips</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="outline-none">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 px-4 py-2 space-y-1">
+            <a href="index.html" class="block py-2 text-gray-600">Home</a>
+            <a href="documents.html" class="block py-2 text-gray-600">Documents</a>
+            <a href="governance.html" class="block py-2 text-gray-600">Governance</a>
+            <a href="tips.html" class="block py-2 text-blue-600 font-medium">Community Tips</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-blue-700 text-white py-12 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-2">Community Tips</h1>
+            <p class="text-blue-100">Recommendations for trusted local contractors used by our neighbors.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-12">
+        <div class="mb-8 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 text-sm italic">
+            Disclaimer: These recommendations are based on neighbor feedback. The HOA does not officially endorse or guarantee the work of any contractor.
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Contractor Category: Landscaping -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mr-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m-2 10h12a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900">Landscaping</h2>
+                </div>
+                <ul class="space-y-4">
+                    <li class="border-b border-gray-100 pb-2">
+                        <div class="font-bold text-gray-800">Green Thumb Services</div>
+                        <div class="text-sm text-gray-500">Specializes in lawn care and seasonal planting.</div>
+                        <div class="text-blue-600 text-sm font-medium mt-1">(Contact info placeholder)</div>
+                    </li>
+                    <li class="border-b border-gray-100 pb-2">
+                        <div class="font-bold text-gray-800">Precision Pruning</div>
+                        <div class="text-sm text-gray-500">Expert hedge trimming and tree care.</div>
+                        <div class="text-blue-600 text-sm font-medium mt-1">(Contact info placeholder)</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contractor Category: Plumbing/HVAC -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mr-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900">Plumbing & HVAC</h2>
+                </div>
+                <ul class="space-y-4">
+                    <li class="border-b border-gray-100 pb-2">
+                        <div class="font-bold text-gray-800">Citywide Plumbing</div>
+                        <div class="text-sm text-gray-500">Quick response for leaks and emergency repairs.</div>
+                        <div class="text-blue-600 text-sm font-medium mt-1">(Contact info placeholder)</div>
+                    </li>
+                    <li class="border-b border-gray-100 pb-2">
+                        <div class="font-bold text-gray-800">Cool Breeze HVAC</div>
+                        <div class="text-sm text-gray-500">Highly rated for AC installation and maintenance.</div>
+                        <div class="text-blue-600 text-sm font-medium mt-1">(Contact info placeholder)</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contractor Category: General Maintenance -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center mr-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 01-2-2V6a2 2 0 012-2h5z"></path></svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900">Handyman</h2>
+                </div>
+                <ul class="space-y-4">
+                    <li class="border-b border-gray-100 pb-2">
+                        <div class="font-bold text-gray-800">Reliable Repairs</div>
+                        <div class="text-sm text-gray-500">General odd jobs and home maintenance.</div>
+                        <div class="text-blue-600 text-sm font-medium mt-1">(Contact info placeholder)</div>
+                    </li>
+                    <li class="border-b border-gray-100 pb-2">
+                        <div class="font-bold text-gray-800">Precision Painting</div>
+                        <div class="text-sm text-gray-500">Excellent exterior and interior painting.</div>
+                        <div class="text-blue-600 text-sm font-medium mt-1">(Contact info placeholder)</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-100 border-t border-gray-200 py-8 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2026 <span class="js-copyright-name">Our Community HOA</span>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- Global Config & Injection -->
+    <script src="config.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
