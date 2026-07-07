@@ -6,7 +6,7 @@ const SITE_CONFIG = {
     copyrightName: "Cherry Hill Estates HomeOwners Association",
     boardMembers: [
         { role: "President", name: "Robb Sutton", email: "resutton4@gmail.com", initial: "P" },
-        { role: "Vice President", name: "Phil Kovach", email: "sbcglobal.net", initial: "V" },
+        { role: "Vice President", name: "Phil Kovach", email: "PhillipKovach@sbcglobal.net", initial: "V" },
         { role: "Secretary", name: "Therese Callahan", email: "tmc8395@gmail.com", initial: "S" },
         { role: "Treasurer", name: "Francois Parent", email: "fparent@gmail.com", initial: "T" }
     ]
