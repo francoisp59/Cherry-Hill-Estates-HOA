@@ -53,77 +53,23 @@
                 <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
                     <span class="mr-2">👥</span> Board Members
                 </h2>
-                <div class="space-y-4">
-                    <!-- Board Member 1 -->
-                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex items-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
-                            P
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-gray-800 text-lg">President Name</h3>
-                            <p class="text-gray-500 text-sm">President</p>
-                        </div>
-                    </div>
-                    <!-- Board Member 2 -->
-                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex items-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
-                            V
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-gray-800 text-lg">Vice President Name</h3>
-                            <p class="text-gray-500 text-sm">Vice President</p>
-                        </div>
-                    </div>
-                    <!-- Board Member 3 -->
-                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex items-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
-                            S
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-gray-800 text-lg">Secretary Name</h3>
-                            <p class="text-gray-500 text-sm">Secretary</p>
-                        </div>
-                    </div>
-                    <!-- Board Member 4 -->
-                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex items-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
-                            T
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-gray-800 text-lg">Treasurer Name</h3>
-                            <p class="text-gray-500 text-sm">Treasurer</p>
-                        </div>
-                    </div>
+                <div id="board-container" class="space-y-4">
+                    <!-- Board members will be injected here by scripts.js -->
                 </div>
             </section>
 
-            <!-- City Reminders -->
+            <!-- City Ordinances -->
             <section>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                    <span class="mr-2">🏙️</span> <span class="js-city">Broadview Heights</span> Bylaws
+                    <span class="mr-2">🏙️</span> Broadview Heights Code of Ordinances
                 </h2>
                 <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 space-y-4">
                     <p class="text-blue-800 font-medium mb-4">Important reminders for residents regarding city ordinances:</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2">✓</span>
-                            <span class="text-gray-700"><strong>Grass Maintenance:</strong> Please ensure lawns are kept within city height limits to avoid municipal citations.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2">✓</span>
-                            <span class="text-gray-700"><strong>Waste Management:</strong> Trash and recycling bins should be stored out of public view on non-collection days.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2">✓</span>
-                            <span class="text-gray-700"><strong>Parking:</strong> Respect city parking regulations, especially regarding overnight street parking during winter snow removals.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2">✓</span>
-                            <span class="text-gray-700"><strong>Home Improvements:</strong> Ensure all major exterior modifications are approved by both the HOA and the city building department.</span>
-                        </li>
+                    <ul id="ordinances-container" class="space-y-4">
+                        <!-- Ordinances will be injected here by scripts.js -->
                     </ul>
                     <div class="mt-6 pt-6 border-t border-blue-200">
-                        <p class="text-xs text-blue-600 italic">For more detailed information, please visit the official City of <span class="js-city">Broadview Heights</span> website.</p>
+                        <p class="text-xs text-blue-600 italic js-city-url">For more detailed information, please visit the official City of <span class="js-city">Broadview Heights</span> website.</p>
                     </div>
                 </div>
             </section>
