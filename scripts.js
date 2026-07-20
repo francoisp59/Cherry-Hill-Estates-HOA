@@ -40,6 +40,8 @@ async function loadNews() {
     const container = document.getElementById('news-container');
     if (!container) return;
 
+    const limit = container.dataset.limit ? parseInt(container.dataset.limit) : null;
+
     try {
         const listResponse = await fetch('news_list.json');
         if (!listResponse.ok) throw new Error('Could not load news manifest');
@@ -47,10 +49,11 @@ async function loadNews() {
         const newsList = await listResponse.json();
         const now = new Date();
 
-        // Filter out expired news and iterate in the order defined in the manifest
-        for (const item of newsList) {
-            const expiryDate = new Date(item.expiry);
-            if (expiryDate < now) continue;
+        const activeNews = newsList.filter(item => new Date(item.expiry) >= now);
+        let renderedCount = 0;
+
+        for (const item of activeNews) {
+            if (limit && renderedCount >= limit) break;
 
             try {
                 const response = await fetch(`latest_news/${item.file}`);
@@ -106,10 +109,23 @@ async function loadNews() {
                 }
 
                 container.appendChild(newsCard);
+                renderedCount++;
             } catch (fileErr) {
                 console.error(`Error loading individual news item ${item.file}:`, fileErr);
             }
         }
+
+        if (limit && activeNews.length > limit) {
+            const viewAllBtn = document.createElement('div');
+            viewAllBtn.className = 'pt-4 text-center';
+            viewAllBtn.innerHTML = `
+                <a href="news.html" class="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg border border-blue-600 hover:bg-blue-50 transition shadow-sm">
+                    View All News <span class="ml-2">→</span>
+                </a>
+            `;
+            container.appendChild(viewAllBtn);
+        }
+
     } catch (err) {
         console.error(`Error loading news manifest:`, err);
         showError(container, `Could not load community news: ${err.message}`);

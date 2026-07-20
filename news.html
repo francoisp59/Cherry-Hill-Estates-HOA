@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Governance - Our Community HOA</title>
+    <title>Latest News - Our Community HOA</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -18,8 +18,8 @@
                 <div class="hidden md:flex space-x-8 font-medium">
                     <a href="index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
                     <a href="documents.html" class="text-gray-600 hover:text-blue-600 transition">Documents</a>
-                    <a href="governance.html" class="text-blue-600">Governance</a>
-                    <a href="news.html" class="text-gray-600 hover:text-blue-600 transition">News</a>
+                    <a href="governance.html" class="text-gray-600 hover:text-blue-600 transition">Governance</a>
+                    <a href="news.html" class="text-blue-600">News</a>
                     <a href="tips.html" class="text-gray-600 hover:text-blue-600 transition">Community Tips</a>
                 </div>
                 <div class="md:hidden flex items-center">
@@ -32,8 +32,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 px-4 py-2 space-y-1">
             <a href="index.html" class="block py-2 text-gray-600">Home</a>
             <a href="documents.html" class="block py-2 text-gray-600">Documents</a>
-            <a href="governance.html" class="block py-2 text-blue-600 font-medium">Governance</a>
-            <a href="news.html" class="block py-2 text-gray-600">News</a>
+            <a href="governance.html" class="block py-2 text-gray-600">Governance</a>
+            <a href="news.html" class="block py-2 text-blue-600 font-medium">News</a>
             <a href="tips.html" class="block py-2 text-gray-600">Community Tips</a>
         </div>
     </nav>
@@ -41,41 +41,15 @@
     <!-- Header -->
     <header class="bg-blue-800 text-white py-16 px-4 text-center">
         <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl font-bold mb-2">HOA Governance</h1>
-            <p class="text-white/90">Our leadership and local regulatory reminders.</p>
+            <h1 class="text-4xl font-bold mb-2">Community News</h1>
+            <p class="text-white/90">Stay up to date with the latest announcements and events in our neighborhood.</p>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-5xl mx-auto px-4 py-12">
-        <div class="grid md:grid-cols-2 gap-12">
-
-            <!-- Board Members -->
-            <section>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                    <span class="mr-2">👥</span> Board Members
-                </h2>
-                <div id="board-container" class="space-y-4">
-                    <!-- Board members will be injected here by scripts.js -->
-                </div>
-            </section>
-
-            <!-- City Ordinances -->
-            <section>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                    <span class="mr-2">🏙️</span> Broadview Heights Code of Ordinances
-                </h2>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 space-y-4">
-                    <p class="text-blue-800 font-medium mb-4">Important reminders for residents regarding city ordinances:</p>
-                    <ul id="ordinances-container" class="space-y-4">
-                        <!-- Ordinances will be injected here by scripts.js -->
-                    </ul>
-                    <div class="mt-6 pt-6 border-t border-blue-200">
-                        <p class="text-xs text-blue-600 italic js-city-url">For more detailed information, please visit the official City of <span class="js-city">Broadview Heights</span> website.</p>
-                    </div>
-                </div>
-            </section>
-
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <div id="news-container" class="space-y-6">
+            <!-- News items will be injected here by scripts.js -->
         </div>
     </main>
 
@@ -91,7 +65,6 @@
         });
     </script>
 
-    <!-- Global Config & Injection -->
     <script src="config.js"></script>
     <script src="scripts.js"></script>
 </body>
