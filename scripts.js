@@ -1,3 +1,14 @@
+function showError(container, message) {
+    if (!container) return;
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'bg-red-50 text-red-700 p-4 rounded-lg border border-red-200 text-center my-4';
+    errorDiv.innerHTML = `
+        <p class="font-medium">Unable to load content</p>
+        <p class="text-sm">${message}</p>
+    `;
+    container.appendChild(errorDiv);
+}
+
 function injectConfig() {
     document.querySelectorAll('.js-community-name').forEach(el => {
         el.textContent = SITE_CONFIG.communityName;
@@ -96,6 +107,7 @@ async function loadNews() {
             fileIndex++;
         } catch (err) {
             console.error(`Error loading news item ${fileName}:`, err);
+            showError(container, `Could not load news: ${err.message}`);
             keepLoading = false;
         }
     }
@@ -144,6 +156,7 @@ async function loadDocuments() {
             fileIndex++;
         } catch (err) {
             console.error(`Error loading document metadata ${fileName}:`, err);
+            showError(container, `Could not load document list: ${err.message}`);
             keepLoading = false;
         }
     }
@@ -211,6 +224,7 @@ async function loadOrdinances() {
             fileIndex++;
         } catch (err) {
             console.error(`Error loading ordinance ${fileName}:`, err);
+            showError(container, `Could not load city ordinances: ${err.message}`);
             keepLoading = false;
         }
     }
@@ -287,6 +301,7 @@ async function loadTips() {
             catIndex++;
         } catch (err) {
             console.error(`Error loading tips category ${catFileName}:`, err);
+            showError(container, `Could not load community tips: ${err.message}`);
             keepLoading = false;
         }
     }
