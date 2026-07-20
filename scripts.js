@@ -40,76 +40,79 @@ async function loadNews() {
     const container = document.getElementById('news-container');
     if (!container) return;
 
-    let fileIndex = 1;
-    let keepLoading = true;
+    try {
+        const listResponse = await fetch('news_list.json');
+        if (!listResponse.ok) throw new Error('Could not load news manifest');
 
-    while (keepLoading) {
-        const fileName = `news-${String(fileIndex).padStart(2, '0')}.md`;
+        const newsList = await listResponse.json();
+        const now = new Date();
 
-        try {
-            const response = await fetch(`latest_news/${fileName}`);
+        // Filter out expired news and iterate in the order defined in the manifest
+        for (const item of newsList) {
+            const expiryDate = new Date(item.expiry);
+            if (expiryDate < now) continue;
 
-            if (!response.ok) {
-                keepLoading = false;
-                break;
+            try {
+                const response = await fetch(`latest_news/${item.file}`);
+                if (!response.ok) {
+                    console.warn(`Could not load news file: ${item.file}`);
+                    continue;
+                }
+
+                const text = await response.text();
+                const lines = text.split('\n').filter(line => line.trim() !== '');
+                if (lines.length === 0) continue;
+
+                const title = lines[0].replace(/^#\s*/, '');
+                const contentLines = lines.slice(1);
+
+                const summaryLines = contentLines.slice(0, 2);
+                const remainingLines = contentLines.slice(2);
+
+                const summary = summaryLines.join(' ');
+                const fullContent = contentLines.join('<br>');
+                const hasMore = remainingLines.length > 0;
+
+                const newsCard = document.createElement('div');
+                newsCard.className = 'bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600';
+                newsCard.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">${title}</h3>
+                    </div>
+                    <div class="news-body">
+                        <p class="text-gray-600 summary-text">${summary}</p>
+                        <div class="hidden full-text mt-2 text-gray-600">${fullContent}</div>
+                    </div>
+                    ${hasMore ? `<button class="mt-3 text-blue-600 hover:text-blue-800 text-sm font-medium transition toggle-news">Read More</button>` : ''}
+                `;
+
+                if (hasMore) {
+                    const btn = newsCard.querySelector('.toggle-news');
+                    btn.addEventListener('click', () => {
+                        const summaryEl = newsCard.querySelector('.summary-text');
+                        const fullEl = newsCard.querySelector('.full-text');
+                        const isExpanded = !fullEl.classList.contains('hidden');
+
+                        if (isExpanded) {
+                            fullEl.classList.add('hidden');
+                            summaryEl.classList.remove('hidden');
+                            btn.textContent = 'Read More';
+                        } else {
+                            fullEl.classList.remove('hidden');
+                            summaryEl.classList.add('hidden');
+                            btn.textContent = 'Show Less';
+                        }
+                    });
+                }
+
+                container.appendChild(newsCard);
+            } catch (fileErr) {
+                console.error(`Error loading individual news item ${item.file}:`, fileErr);
             }
-
-            const text = await response.text();
-            const lines = text.split('\n').filter(line => line.trim() !== '');
-            if (lines.length === 0) {
-                fileIndex++;
-                continue;
-            }
-
-            const title = lines[0].replace(/^#\s*/, '');
-            const contentLines = lines.slice(1);
-
-            const summaryLines = contentLines.slice(0, 2);
-            const remainingLines = contentLines.slice(2);
-
-            const summary = summaryLines.join(' ');
-            const fullContent = contentLines.join('<br>');
-            const hasMore = remainingLines.length > 0;
-
-            const newsCard = document.createElement('div');
-            newsCard.className = 'bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600';
-            newsCard.innerHTML = `
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-xl font-bold text-gray-800">${title}</h3>
-                </div>
-                <div class="news-body">
-                    <p class="text-gray-600 summary-text">${summary}</p>
-                    <div class="hidden full-text mt-2 text-gray-600">${fullContent}</div>
-                </div>
-                ${hasMore ? `<button class="mt-3 text-blue-600 hover:text-blue-800 text-sm font-medium transition toggle-news">Read More</button>` : ''}
-            `;
-
-            if (hasMore) {
-                const btn = newsCard.querySelector('.toggle-news');
-                btn.addEventListener('click', () => {
-                    const summaryEl = newsCard.querySelector('.summary-text');
-                    const fullEl = newsCard.querySelector('.full-text');
-                    const isExpanded = !fullEl.classList.contains('hidden');
-
-                    if (isExpanded) {
-                        fullEl.classList.add('hidden');
-                        summaryEl.classList.remove('hidden');
-                        btn.textContent = 'Read More';
-                    } else {
-                        fullEl.classList.remove('hidden');
-                        summaryEl.classList.add('hidden');
-                        btn.textContent = 'Show Less';
-                    }
-                });
-            }
-
-            container.appendChild(newsCard);
-            fileIndex++;
-        } catch (err) {
-            console.error(`Error loading news item ${fileName}:`, err);
-            showError(container, `Could not load news: ${err.message}`);
-            keepLoading = false;
         }
+    } catch (err) {
+        console.error(`Error loading news manifest:`, err);
+        showError(container, `Could not load community news: ${err.message}`);
     }
 }
 
