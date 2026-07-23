@@ -5,9 +5,29 @@ const SITE_CONFIG = {
     cityOrdinanceUrl: "https://codelibrary.amlegal.com/codes/broadviewhts/latest/broadview_oh/0-0-0-1",
     copyrightName: "Cherry Hill Estates HomeOwners Association",
     boardMembers: [
-        { role: "President", name: "Robb Sutton", email: "resutton4@gmail.com", initial: "P" },
-        { role: "Vice President", name: "Phil Kovach", email: "PhillipKovach@sbcglobal.net", initial: "V" },
-        { role: "Secretary", name: "Therese Callahan", email: "tmc8395@gmail.com", initial: "S" },
-        { role: "Treasurer", name: "Francois Parent", email: "fparent@gmail.com", initial: "T" }
+        {
+            name: "Robb Sutton",
+            role: "President",
+            email: "resutton4@gmail.com",
+            initial: "P"
+        },
+        {
+            name: "Phil Kovach",
+            role: "Vice President",
+            email: "PhillipKovach@sbcglobal.net",
+            initial: "V"
+        },
+        {
+            name: "Therese Callahan",
+            role: "Secretary",
+            email: "tmc8395@gmail.com",
+            initial: "S"
+        },
+        {
+            name: "Francois Parent",
+            role: "Treasurer",
+            email: "francoisp@msn.com",
+            initial: "T"
+        }
     ]
 };

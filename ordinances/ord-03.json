@@ -1,5 +1,9 @@
 {
-    "title": "Parking",
-    "description": "Respect city parking regulations, especially regarding overnight street parking during winter snow removals.",
-    "link": null
+  "title": "Parking",
+  "description": "Respect city parking regulations, especially regarding overnight street parking during winter snow removals.",
+<<<<<<< HEAD
+  "link": "https://codelibrary.amlegal.com/codes/broadviewhts/latest/broadview_oh/0-0-0-5150"
+=======
+  "link": ""
+>>>>>>> feae03aedcad8f6b579503bafbc3883ed881fca9
 }
