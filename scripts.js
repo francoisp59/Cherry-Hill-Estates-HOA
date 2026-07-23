@@ -208,44 +208,45 @@ async function loadOrdinances() {
     const container = document.getElementById('ordinances-container');
     if (!container) return;
 
-    let fileIndex = 1;
-    let keepLoading = true;
+    try {
+        const response = await fetch('ordinances_list.json');
+        if (!response.ok) throw new Error('Could not load ordinances manifest');
 
-    while (keepLoading) {
-        const fileName = `ord-${String(fileIndex).padStart(2, '0')}.json`;
+        const manifest = await response.json();
 
-        try {
-            const response = await fetch(`ordinances/${fileName}`);
+        for (const fileName of manifest) {
+            try {
+                const ordResponse = await fetch(`ordinances/${fileName}`);
+                if (!ordResponse.ok) {
+                    console.warn(`Could not load ordinance file: ${fileName}`);
+                    continue;
+                }
 
-            if (!response.ok) {
-                keepLoading = false;
-                break;
+                const data = await ordResponse.json();
+
+                const li = document.createElement('li');
+                li.className = 'flex items-start';
+
+                const linkHtml = data.link
+                    ? `<a href="${data.link}" target="_blank" class="text-blue-600 hover:underline ml-1 font-medium">View Official Code -></a>`
+                    : '';
+
+                li.innerHTML = `
+                    <span class="text-blue-500 mr-2">✓</span>
+                    <span class="text-gray-700">
+                        <strong class="font-bold">${data.title}:</strong> ${data.description}
+                        ${linkHtml}
+                    </span>
+                `;
+
+                container.appendChild(li);
+            } catch (fileErr) {
+                console.error(`Error loading individual ordinance ${fileName}:`, fileErr);
             }
-
-            const data = await response.json();
-
-            const li = document.createElement('li');
-            li.className = 'flex items-start';
-
-            const linkHtml = data.link
-                ? `<a href="${data.link}" target="_blank" class="text-blue-600 hover:underline ml-1 font-medium">View Official Code -></a>`
-                : '';
-
-            li.innerHTML = `
-                <span class="text-blue-500 mr-2">✓</span>
-                <span class="text-gray-700">
-                    <strong class="font-bold">${data.title}:</strong> ${data.description}
-                    ${linkHtml}
-                </span>
-            `;
-
-            container.appendChild(li);
-            fileIndex++;
-        } catch (err) {
-            console.error(`Error loading ordinance ${fileName}:`, err);
-            showError(container, `Could not load city ordinances: ${err.message}`);
-            keepLoading = false;
         }
+    } catch (err) {
+        console.error(`Error loading ordinances manifest:`, err);
+        showError(container, `Could not load city ordinances: ${err.message}`);
     }
 }
 
