@@ -25,6 +25,12 @@ function injectConfig() {
     document.querySelectorAll('.js-copyright-name').forEach(el => {
         el.textContent = SITE_CONFIG.copyrightName;
     });
+    document.querySelectorAll('.js-welcome-title').forEach(el => {
+        el.textContent = SITE_CONFIG.welcomeTitle;
+    });
+    document.querySelectorAll('.js-welcome-subtitle').forEach(el => {
+        el.textContent = SITE_CONFIG.welcomeSubtitle;
+    });
     document.querySelectorAll('.js-city-url').forEach(el => {
         const link = document.createElement('a');
         link.href = SITE_CONFIG.cityOrdinanceUrl;
@@ -43,7 +49,7 @@ async function loadNews() {
     const limit = container.dataset.limit ? parseInt(container.dataset.limit) : null;
 
     try {
-        const listResponse = await fetch('news_list.json');
+        const listResponse = await fetch(`news_list.json?t=${Date.now()}`);
         if (!listResponse.ok) throw new Error('Could not load news manifest');
 
         const newsList = await listResponse.json();

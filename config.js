@@ -4,6 +4,8 @@ const SITE_CONFIG = {
     city: "Broadview Heights",
     cityOrdinanceUrl: "https://codelibrary.amlegal.com/codes/broadviewhts/latest/broadview_oh/0-0-0-1",
     copyrightName: "Cherry Hill Estates HomeOwners Association",
+    welcomeTitle: "Welcome to Our Neighborhood",
+    welcomeSubtitle: "A small community of 27 homes dedicated to maintaining a beautiful and safe environment for all",
     boardMembers: [
         {
             name: "Robb Sutton",
