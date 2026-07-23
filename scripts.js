@@ -248,22 +248,13 @@ async function loadTips() {
     const container = document.getElementById('tips-container');
     if (!container) return;
 
-    let catIndex = 1;
-    let keepLoading = true;
+    try {
+        const response = await fetch('tips/tips.json');
+        if (!response.ok) throw new Error('Could not load community tips');
 
-    while (keepLoading) {
-        const catFileName = `categories/cat-${String(catIndex).padStart(2, '0')}.json`;
+        const categories = await response.json();
 
-        try {
-            const catResponse = await fetch(`tips/${catFileName}`);
-
-            if (!catResponse.ok) {
-                keepLoading = false;
-                break;
-            }
-
-            const catData = await catResponse.json();
-
+        for (const catData of categories) {
             const categoryCard = document.createElement('div');
             categoryCard.className = 'bg-white p-6 rounded-2xl shadow-sm border border-gray-200';
 
@@ -280,44 +271,31 @@ async function loadTips() {
 
             const providerList = categoryCard.querySelector('.provider-list');
 
-            let provIndex = 1;
-            let provLoading = true;
-            while (provLoading) {
-                const provFileName = `providers/cat${String(catIndex).padStart(2, '0')}-${String(provIndex).padStart(2, '0')}.json`;
-                const provResponse = await fetch(`tips/${provFileName}`);
+            if (catData.providers && Array.isArray(catData.providers)) {
+                for (const provData of catData.providers) {
+                    const li = document.createElement('li');
+                    li.className = 'border-b border-gray-100 pb-2';
 
-                if (!provResponse.ok) {
-                    provLoading = false;
-                    break;
+                    let contactHtml = '';
+                    if (provData.phone) contactHtml += `<div class="block">${provData.phone}</div>`;
+                    if (provData.email) contactHtml += `<div class="block"><a href="mailto:${provData.email}" class="hover:underline">${provData.email}</a></div>`;
+                    if (provData.website) contactHtml += `<div class="block"><a href="${provData.website}" target="_blank" class="hover:underline">Website</a></div>`;
+
+                    li.innerHTML = `
+                        <div class="font-bold text-gray-800">${provData.name}</div>
+                        <div class="text-sm text-gray-500 mb-1">${provData.description || ''}</div>
+                        <div class="text-blue-600 text-sm font-medium mt-1 space-y-0.5">${contactHtml}</div>
+                    `;
+
+                    providerList.appendChild(li);
                 }
-
-                const provData = await provResponse.json();
-
-                const li = document.createElement('li');
-                li.className = 'border-b border-gray-100 pb-2';
-
-                let contactHtml = '';
-                if (provData.phone) contactHtml += `<div class="block">${provData.phone}</div>`;
-                if (provData.email) contactHtml += `<div class="block"><a href="mailto:${provData.email}" class="hover:underline">${provData.email}</a></div>`;
-                if (provData.website) contactHtml += `<div class="block"><a href="${provData.website}" target="_blank" class="hover:underline">Website</a></div>`;
-
-                li.innerHTML = `
-                    <div class="font-bold text-gray-800">${provData.name}</div>
-                    <div class="text-sm text-gray-500 mb-1">${provData.description || ''}</div>
-                    <div class="text-blue-600 text-sm font-medium mt-1 space-y-0.5">${contactHtml}</div>
-                `;
-
-                providerList.appendChild(li);
-                provIndex++;
             }
 
             container.appendChild(categoryCard);
-            catIndex++;
-        } catch (err) {
-            console.error(`Error loading tips category ${catFileName}:`, err);
-            showError(container, `Could not load community tips: ${err.message}`);
-            keepLoading = false;
         }
+    } catch (err) {
+        console.error(`Error loading community tips:`, err);
+        showError(container, `Could not load community tips: ${err.message}`);
     }
 }
 

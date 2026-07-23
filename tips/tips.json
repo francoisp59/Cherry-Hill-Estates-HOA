@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Landscaping",
+    "providers": [
+      {
+        "name": "Green Thumb Services",
+        "description": "Specializes in lawn care and seasonal planting.",
+        "phone": "440-555-0101",
+        "email": "info@greenthumb.com",
+        "website": "https://greenthumb.com"
+      },
+      {
+        "name": "Precision Pruning",
+        "description": "Expert hedge trimming and tree care.",
+        "phone": "440-555-0102",
+        "email": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "name": "Plumbing & HVAC",
+    "providers": [
+      {
+        "name": "Citywide Plumbing",
+        "description": "Quick response for leaks and emergency repairs.",
+        "phone": "440-555-0201",
+        "email": "service@citywide.com",
+        "website": null
+      },
+      {
+        "name": "Cool Breeze HVAC",
+        "description": "Highly rated for AC installation and maintenance.",
+        "phone": "440-555-0202",
+        "email": null,
+        "website": "https://coolbreeze.com"
+      }
+    ]
+  },
+  {
+    "name": "Handyman",
+    "providers": [
+      {
+        "name": "Reliable Repairs",
+        "description": "General odd jobs and home maintenance.",
+        "phone": "440-555-0301",
+        "email": "help@reliablerepairs.com",
+        "website": null
+      },
+      {
+        "name": "Precision Painting",
+        "description": "Excellent exterior and interior painting.",
+        "phone": "440-555-0302",
+        "email": null,
+        "website": null
+      }
+    ]
+  }
+]
