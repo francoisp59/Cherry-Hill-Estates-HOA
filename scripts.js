@@ -142,25 +142,15 @@ async function loadDocuments() {
     const container = document.getElementById('docs-container');
     if (!container) return;
 
-    let fileIndex = 1;
-    let keepLoading = true;
+    try {
+        const response = await fetch('docs_meta/documents.json');
+        if (!response.ok) throw new Error('Could not load documents metadata');
 
-    while (keepLoading) {
-        const fileName = `doc-${String(fileIndex).padStart(2, '0')}.json`;
+        const documents = await response.json();
 
-        try {
-            const response = await fetch(`docs_meta/${fileName}`);
-
-            if (!response.ok) {
-                keepLoading = false;
-                break;
-            }
-
-            const data = await response.json();
-
+        for (const data of documents) {
             if (!data.fileName || !data.fileName.toLowerCase().endsWith('.pdf')) {
-                console.warn(`Skipping ${fileName}: Not a valid PDF reference.`);
-                fileIndex++;
+                console.warn(`Skipping document: ${data.name}. Not a valid PDF reference.`);
                 continue;
             }
 
@@ -178,12 +168,10 @@ async function loadDocuments() {
             `;
 
             container.appendChild(docCard);
-            fileIndex++;
-        } catch (err) {
-            console.error(`Error loading document metadata ${fileName}:`, err);
-            showError(container, `Could not load document list: ${err.message}`);
-            keepLoading = false;
         }
+    } catch (err) {
+        console.error(`Error loading documents:`, err);
+        showError(container, `Could not load documents list: ${err.message}`);
     }
 }
 
