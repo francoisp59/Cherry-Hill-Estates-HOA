@@ -25,8 +25,8 @@
         "name": "Citywide Plumbing",
         "description": "Quick response for leaks and emergency repairs.",
         "phone": "440-555-0201",
-        "email": "service@citywide.com",
-        "website": null
+        "email": "service@citywideOhio.com",
+        "website": "www.citywideOhio.com"
       },
       {
         "name": "Cool Breeze HVAC",
@@ -43,16 +43,16 @@
       {
         "name": "Reliable Repairs",
         "description": "General odd jobs and home maintenance.",
-        "phone": "440-555-0301",
+        "phone": "440-555-0302",
         "email": "help@reliablerepairs.com",
-        "website": null
+        "website": ""
       },
       {
         "name": "Precision Painting",
-        "description": "Excellent exterior and interior painting.",
-        "phone": "440-555-0302",
-        "email": null,
-        "website": null
+        "description": "Excellent interior painting",
+        "phone": "440-555-0303",
+        "email": "",
+        "website": ""
       }
     ]
   }
